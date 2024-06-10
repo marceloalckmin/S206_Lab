@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "c232de2a-ba9b-48f4-9cfb-672a71d62fe2",
+		"name": "Lista - Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34901675"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Busca marcas de carro com sucesso",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//pra verificar se deu realmente certo vou procurar a marca de carros \"Honda\" no json\r",
+									"pm.test(\"Verificando se a lista está correta\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Honda\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fipe.parallelum.com.br/api/v2/cars/brands",
+							"protocol": "https",
+							"host": [
+								"fipe",
+								"parallelum",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v2",
+								"cars",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint falho na busca de marcas de moto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"//a API retorna o codigo 500 quando a endpoint é digitada errado."
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fipe.parallelum.com.br/api/v2/motorcycles/brasdn",
+							"protocol": "https",
+							"host": [
+								"fipe",
+								"parallelum",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v2",
+								"motorcycles",
+								"brasdn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscando modelos de moto de uma certa marca",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//pra verificar se a lista está correta, vou procurar se existe a moto CBR 650F da honda na lista\r",
+									"pm.test(\"Verificando se a lista está correta\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"CBR 650F\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fipe.parallelum.com.br/api/v2/motorcycles/brands/80/models",
+							"protocol": "https",
+							"host": [
+								"fipe",
+								"parallelum",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v2",
+								"motorcycles",
+								"brands",
+								"80",
+								"models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca das informações FIPE do carro com ID 9326 da Toyota do ano 2024-1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//para verificar se deu certo, vou checar se existe o campo \"codeFipe\" no json de resposta\r",
+									"pm.test(\"Checando se realmente achou a tabela fipe ao verificar a existencia do campo codeFipe\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"codeFipe\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fipe.parallelum.com.br/api/v2/cars/brands/56/models/9326/years/2024-1",
+							"protocol": "https",
+							"host": [
+								"fipe",
+								"parallelum",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v2",
+								"cars",
+								"brands",
+								"56",
+								"models",
+								"9326",
+								"years",
+								"2024-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Falha em busca do ano da moto pelo código fipe errado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"//buscando o erro que é retornada quando a api não acha o código inserido no site da tabela fipe\r",
+									"pm.test(\"Falha ao localizar o código em fipe.org\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"failed to locate the information on fipe.org\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fipe.parallelum.com.br/api/v2/motorcycles/bobesponja/years",
+							"protocol": "https",
+							"host": [
+								"fipe",
+								"parallelum",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v2",
+								"motorcycles",
+								"bobesponja",
+								"years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscando o histórico do carro Rx 7 2.6 Turbo do ano 1994-1 pelo seu código Fipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//pra verificar que deu certo vou buscar tanto o nome do carro quanto a existencia do campo priceHistory\r",
+									"pm.test(\"Verificando o nome do veículo encontrado\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"RX 7 2.6 Turbo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Procurando o campo priceHistory\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"priceHistory\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fipe.parallelum.com.br/api/v2/cars/020012-3/years/1994-1/history",
+							"protocol": "https",
+							"host": [
+								"fipe",
+								"parallelum",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v2",
+								"cars",
+								"020012-3",
+								"years",
+								"1994-1",
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
