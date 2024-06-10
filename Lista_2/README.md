@@ -1,14 +1,20 @@
 #Lista de exercicios com POSTMAN
 
 Para executar o projeto gerando relatórios, primeiramente você precisa baixar o node.js através deste site:
+
 https://nodejs.org/en
+
+
 Em seguida você precisa ter o newman instalado em seu computador, que é instalado por este comando:
+
 npm install -g newman
 
 Após isso você precisa ter o htmlextra instalado, que é instalado por esse comando:
+
 npm install -g newman-reporter-htmlextra
 
 Feito isso, você pode rodar o newman para gerar o relatório html dentro da pasta "newman" usando o seguinte comando:
+
 newman run "Lista - Postman.postman_collection.json" -r htmlextra
 
 Agora caso queira executar o projeto dentro do postman, é necessário ter o postman instalado, você pode baixá-lo através desse link:
