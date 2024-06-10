@@ -10,7 +10,7 @@
 			"name": "GET",
 			"item": [
 				{
-					"name": "Busca marcas de carro com sucesso",
+					"name": "Procurando as referencias de codigos e meses da tabela fipe",
 					"event": [
 						{
 							"listen": "test",
@@ -20,9 +20,9 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"//pra verificar se deu realmente certo vou procurar a marca de carros \"Honda\" no json\r",
-									"pm.test(\"Verificando se a lista está correta\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Honda\");\r",
+									"//pra verificar se está correto, é feita a verificação da existencia do campo \"code\"\r",
+									"pm.test(\"Possui o campo code\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"code\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -34,7 +34,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://fipe.parallelum.com.br/api/v2/cars/brands",
+							"raw": "https://fipe.parallelum.com.br/api/v2/references",
 							"protocol": "https",
 							"host": [
 								"fipe",
@@ -45,8 +45,7 @@
 							"path": [
 								"api",
 								"v2",
-								"cars",
-								"brands"
+								"references"
 							]
 						}
 					},
