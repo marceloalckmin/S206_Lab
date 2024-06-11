@@ -1,5 +1,9 @@
 #Lista de exercicios com POSTMAN
 
+Essa lista foi feita utilizando a api referente a tabela fipe encontrada no site https://veiculos.fipe.org.br
+
+O link para ver a documentação da api é esse: https://deividfortuna.github.io/fipe/v2/
+
 Para executar o projeto gerando relatórios, primeiramente você precisa baixar o node.js através deste site:
 
 https://nodejs.org/en
