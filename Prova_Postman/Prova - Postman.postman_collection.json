@@ -10,7 +10,7 @@
 			"name": "GET",
 			"item": [
 				{
-					"name": "Buscando informações do pet pelo ID 123",
+					"name": "Buscando informações do pet pelo ID 131",
 					"event": [
 						{
 							"listen": "test",
@@ -20,10 +20,10 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"//verificando se o id é realmente o 123 no json que foi encontrado\r",
+									"//verificando se o id é realmente o 9222968140497181000 no json que foi encontrado\r",
 									"pm.test(\"Verificando o ID retornado\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.id).to.eql(123);\r",
+									"    pm.expect(jsonData.id).to.eql(9222968140497181000);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "petstore.swagger.io/v2/pet/123",
+							"raw": "petstore.swagger.io/v2/pet/9222968140497181000",
 							"host": [
 								"petstore",
 								"swagger",
@@ -44,7 +44,7 @@
 							"path": [
 								"v2",
 								"pet",
-								"123"
+								"9222968140497181000"
 							]
 						}
 					},
@@ -93,7 +93,7 @@
 					"response": []
 				},
 				{
-					"name": "Busca por pets que estão pendentes",
+					"name": "Busca por pets que estão disponíveis",
 					"event": [
 						{
 							"listen": "test",
@@ -103,9 +103,9 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"//verificando se o status realmente está como \"pending\"\r",
-									"pm.test(\"Procurando por pending no json, que caso encontrado, será do status\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"pending\");\r",
+									"//verificando se o status realmente está como \"available\"\r",
+									"pm.test(\"Procurando por available no json, que caso encontrado, será do status\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"available\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -117,7 +117,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=pending",
+							"raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
 							"protocol": "https",
 							"host": [
 								"petstore",
@@ -132,7 +132,7 @@
 							"query": [
 								{
 									"key": "status",
-									"value": "pending"
+									"value": "available"
 								}
 							]
 						}
