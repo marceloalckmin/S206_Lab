@@ -25,6 +25,7 @@ Enfim, quando tiver importado você pode rodar manualmente cada request pelo pr�
 
 
 Respostas do exercicio 2:
+
 1: Uma suite de testes ou spec, no entanto foram desenvolvidos 6 casos de teste
 
 2: Os testes desenvolvidos são automatizados
