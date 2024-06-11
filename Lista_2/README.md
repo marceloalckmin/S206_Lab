@@ -22,3 +22,17 @@ https://www.postman.com
 
 Logo após a instalação do postman, você precisa importar a colection Lista - Postman pelo botão "import" no canto superior esquerdo do Postman e selecionar a collection da lista
 Enfim, quando tiver importado você pode rodar manualmente cada request pelo próprio postman, assim como ver os scripts das assertivas
+
+
+Respostas do exercicio 2:
+1: Uma suite de testes ou spec, no entanto foram desenvolvidos 6 casos de teste
+
+2: Os testes desenvolvidos são automatizados
+
+3: Esses são testes de integração
+
+4: Os testes são funcionais
+
+5: Não pois esses são testes de API, então não se encaixam completamente na categoria E2E
+
+6: Integrar a um controle de versão, isolar ou simular dados e fazer a manutenção dos testes
