@@ -10,8 +10,10 @@ Em seguida você precisa ter o newman instalado em seu computador, que é instal
 npm install -g newman
 
 Após isso você precisa ter o htmlextra instalado, que é instalado por esse comando:
-
+'''
 npm install -g newman-reporter-htmlextra
+'''
+
 
 Feito isso, você pode rodar o newman para gerar o relatório html dentro da pasta "newman" usando o seguinte comando:
 
